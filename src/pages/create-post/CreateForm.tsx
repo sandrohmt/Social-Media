@@ -4,7 +4,7 @@ import * as yup from "yup"
 import { addDoc, collection } from "firebase/firestore"
 import { auth, db } from "../../config/firebase"
 import { useAuthState } from "react-firebase-hooks/auth"
-
+import { useNavigate  } from "react-router-dom"
 
 
 interface CreateFormData {
@@ -14,6 +14,7 @@ interface CreateFormData {
 
 export const CreateForm = () => { 
   const [user] = useAuthState(auth) // Serve para ter acesso as informações do usuário atual
+  const navigate = useNavigate()
 
   const schema = yup.object().shape({
     title: yup.string().required("You must add a title."),
@@ -32,6 +33,7 @@ export const CreateForm = () => {
       username: user?.displayName,
       userId: user?.uid // uid é o id usado pelo google
     })
+    navigate("/")
   }
 
   return (
