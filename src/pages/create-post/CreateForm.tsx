@@ -25,7 +25,7 @@ export const CreateForm = () => {
     resolver: yupResolver(schema)
   })
 
-  const postsRef = collection(db, "posts")
+  const postsRef = collection(db, "posts") // Definir qual a coleção você vai se referir
 
   const onCreatePost = async (data: CreateFormData) => { // Passar os dados do post (title e description) pro banco de dados do firebase
     await addDoc(postsRef, {

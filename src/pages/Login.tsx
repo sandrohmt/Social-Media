@@ -8,7 +8,7 @@ export const Login = () => {
     const signInWithGoogle = async () => {
        const result = await signInWithPopup(auth, provider)
        console.log(result) 
-       navigate("/") // Basicamente o usenavigate serve para mudar de link dentro de uma função
+       navigate("/") // Basicamente o use navigate serve para mudar de link dentro de uma função
     }
 
     return (
